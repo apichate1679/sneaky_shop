@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="th">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Register</title>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <link rel='stylesheet' type='text/css' media='screen' href='style.css'>    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <div class="main">
+            <section class="register">
+                <!-- <div class="container"> -->
+                    <div class="register-content" id="boxShop">
+                        <div class="register-img" id="left">
+                            <!-- <figure> -->
+                                <img src="img/sneakerpic.jpg">
+                            <!-- </figure> -->
+                        </div>
+                        <div class="register-form" id="right">
+                            <h2 class="form-title">Register</h2>
+                            <form method="POST" class="signup" id="signup">
+                                <div class="form-group">
+                                    <input type="text" name="email" id="email" placeholder="Email" required>
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="password" id="password" placeholder="Password" required >
+                                </div>
+                                <div class="form-group">
+                                    <input type="password" name="confirm" id="confirm" placeholder="Confirm Password" required>
+                                </div>
+                                <div class="form-group form-button" >
+                                    <input class="btn-submit" type="submit" name="regis" class="form-submit" value="Register">
+                                </div>
+                                <a href="login.html" class="tologin-link">I already have account</a>
+                            </form>
+                        </div> 
+                    </div>
+                <!-- </div> -->
+            </section>
+        </div>
+        <script>
+            $(document).ready(()=>{
+                $("#signup").submit((e)=>{
+                    e.preventDefault()
+                    const email = $("#email").val()
+                    const password = $("#password").val()
+                    const confirmPassword = $("#confirm").val()
+
+                    $.post("/api/register", {email, password, confirmPassword},(data)=>{
+                        if (data.status === "success") {
+                            location.href = "/login.html"
+                        }
+                    }, "json")
+                })
+            })
+        </script>
+
+        </script>
+        <!--=====START OF FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__box">
+                <h3 class="footer__title">Sneaky Shop</h3>
+                <p class="footer__description">New collection of sneakers 2021.</p>
+            </div>
+
+            <div class="footer__box">
+                <h3 class="footer__title">EXPLORE</h3>
+                <ul>
+                    <li><a href="#home" class="footer__link">Home</a></li><br>
+                    <li><a href="#new" class="footer__link">New Realease</a></li><br>
+                    <li><a href="#product" class="footer__link">Products</a></li>
+                </ul>                  
+            </div>
+
+            <div class="footer__box">
+                <h3 class="footer__title">SUPPORT</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/apichate.vuttiosod/" class="footer__link">Product Help</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100007750321878" class="footer__link">Customer Care</a></li>
+                    <li><a href="https://www.facebook.com/thanadol.nontanum" class="footer__link">Athorized service</a></li>
+                </ul>                  
+            </div>
+            
+            <div class="footer__box">
+                <a class="footer__social"><i class='bx bxl-cas' ></i></a>
+                <a class="footer__social"><i class='bx bxl-visa' ></i></a>
+                <a class="footer__social"><i class='bx bxl-mastercard' ></i></a>
+                <a class="footer__social"><i class='bx bxl-paypal' ></i></a>
+                
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2021 Sneaky Shop. All right reserved</p>
+    </footer>
+    <!--END Of FOOTER-->
+    </body>
+</html>

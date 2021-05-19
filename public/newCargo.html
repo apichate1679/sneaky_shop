@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<body>
+    <form id="add_cargo">
+        <h1>Add new cargo</h1>
+        <input type="file" id="cargo_uploader">
+        <br>
+        <input type="text" placeholder="name" id="cargo_name">
+        <br>
+        <input type="text" placeholder="price" id="cargo_price">
+        <br>
+        <button>submit</button>
+    </form>
+    <script>
+        $(document).ready(()=>{
+            const uploader = document.getElementById("cargo_uploader")
+            $("#add_cargo").submit((e)=>{
+                e.preventDefault()
+                const cargoName = $("#cargo_name").val()
+                const cargoPrice = $("#cargo_price").val()
+                const data = new FormData()
+                data.append("image", uploader.files[0])
+                data.append("name", cargoName)
+                data.append("price", cargoPrice)
+                $.ajax({
+                    url: '/api/user/insertCargo',
+                    data: data,
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    method: 'POST',
+                    type: 'POST',
+                    success: function(data){
+                        console.log(data);
+                        if (data.status === "success") {
+                            location.href = "/index.html"
+                        }
+                    }
+                })
+            })
+        })
+    </script>
+</body>
+</html>

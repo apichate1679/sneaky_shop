@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript" src="JS_Checkout.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <title>Sneaky Shop</title>
+</head>
+
+<body>
+    <!--=============START OF MENU===================-->
+    <header class="l-header" id="header">
+        <nav class="nav bd-grid">
+            <div class="nav__toggle" id="nav-toggle">
+                <i class='bx bxs-grid'></i>
+            </div>
+
+            <a href="#" class="nav__logo">Sneaky Shop</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list">
+                    <li class="nav__item"><a href="index_login.html" class="nav__link ">Back</a></li>
+                    <li class="nav__item"><a href="index.html" class="nav__link ">Log out</a></li>
+                </ul>
+            </div>
+
+            <div class="nav__shop">
+                <i class='bx bx-plus'title="Add Product" ><a href="sell.html" ></a></i>
+            </div>
+        </nav>
+    </header>
+    <!--=============END OF MENU===================-->
+
+    <!--=============START OF CHECKOUT===================-->
+    <div id="boxShop">
+        
+    </div>
+    <!--=============END OF CHECKOUT===================-->
+    <script>
+            $(document).ready(()=>{
+                const url = new URL(location.href)
+                $.get(`/api/getCargo?cargo_id=${url.searchParams.get("cargo_id")}`, (data)=>{
+                    if (data.status === "success") {
+                        const {name, image, price} = data.result
+                            console.log(name);
+                            $("#boxShop").append(`
+                            <div id="left">
+                                <div>
+                                    <img src="/uploads/${image}" alt="Air Jordan1-mid">
+                                </div>
+                                <div id="pricetag">
+                                    <p>Price :</p>
+                                    <p id="pricerate">${price}</p>
+                                </div>
+                                <div id="nametag">
+                                    <p>Name :${name}</p>
+                                </div>
+                            </div>
+                            <div id="right">
+                                <div>
+                                    <p>Payment</p>
+                                    <div>
+                                        <input type="radio" name="payment" id="visa">
+                                        <label for="visa">VISA</label>
+                                        <input type="radio" name="payment" id="paypal">
+                                        <label for="paypal">PAYPAL</label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <p>Shipment</p>
+                                    <div>
+                                        <input type="radio" name="shipment" id="normal">
+                                        <label for="normal">Normal</label>
+                                        <input type="radio" name="shipment" id="ems">
+                                        <label for="ems">EMS</label>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div>
+                                    <p>Address</p>
+                                    <div id="div-address">
+                                        <!-- <label for="address">address :</label><br> -->
+                                        <!-- <input type="text" id="address" name="address"><br> -->
+                                        <textarea name="address" id="address" cols="40" rows="5"></textarea>
+                                        <div>
+                                            <!-- <div id="Checkout">
+                                                <a href="">
+                                                    Checkout
+                                                </a>
+                                            </div> -->
+                                            <button id="checkout" type="submit">Checkout</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            `)
+                    }
+                }, "json")
+            })
+    </script>
+    <!--=====START OF FOOTER =====-->
+    <footer class="footer section">
+        <div class="footer__container bd-grid">
+            <div class="footer__box">
+                <h3 class="footer__title">Sneaky Shop</h3>
+                <p class="footer__description">New collection of sneakers 2021.</p>
+            </div>
+
+            <div class="footer__box">
+                <h3 class="footer__title">EXPLORE</h3>
+                <ul>
+                    <li><a href="#home" class="footer__link">Home</a></li><br>
+                    <li><a href="#new" class="footer__link">New Realease</a></li><br>
+                    <li><a href="#product" class="footer__link">Products</a></li>
+                </ul>                  
+            </div>
+
+            <div class="footer__box">
+                <h3 class="footer__title">SUPPORT</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/apichate.vuttiosod/" class="footer__link">Product Help</a></li>
+                    <li><a href="https://www.facebook.com/profile.php?id=100007750321878" class="footer__link">Customer Care</a></li>
+                    <li><a href="https://www.facebook.com/thanadol.nontanum" class="footer__link">Athorized service</a></li>
+                </ul>                  
+            </div>
+            
+            <div class="footer__box">
+                <a class="footer__social"><i class='bx bxl-cas' ></i></a>
+                <a class="footer__social"><i class='bx bxl-visa' ></i></a>
+                <a class="footer__social"><i class='bx bxl-mastercard' ></i></a>
+                <a class="footer__social"><i class='bx bxl-paypal' ></i></a>
+                
+            </div>
+        </div>
+        <p class="footer__copy">&#169; 2021 Sneaky Shop. All right reserved</p>
+    </footer>
+    <!--END Of FOOTER-->
+</body>
+
+</html>
