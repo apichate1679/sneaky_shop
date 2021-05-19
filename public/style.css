@@ -12,7 +12,7 @@
   /*===== Colores =====*/
   --dark-color: #141414;
   --dark-color-light: #8A8A8A;
-  --dark-color-lighten: #F2F2F2;
+  --dark-color-lighten: #F7F7F7;
   --white-color: #FFF;
   --red-color: #ff6347;
   --dar-color-red:#f54323;
@@ -65,6 +65,7 @@ body{
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
+  background-color: var(--dark-color-lighten);
   color: var(--dark-color);
   line-height: 1.6;
 }
@@ -385,7 +386,7 @@ img{
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  background-color: var(--dark-color-lighten);
+  background-color: var(--white-color);
   border-radius: .5rem;
   transition: .3s;
 }
@@ -403,24 +404,21 @@ img{
 }
 
 .sneaker__img{
-  width: 220px;
+  width:100%;
   margin-top: var(--mb-3);
   margin-bottom: var(--mb-6);
-  transform: var(--rotate-img);
-  filter: drop-shadow(0 12px 8px rgba(0,0,0,.2));
 }
-
-.sneaker__name, .sneaker__preci{
-  font-size: var(--h2-font-size);
-  letter-spacing: .1rem;
-  font-weight: var(--font-bold);
-}
-
 .sneaker__name{
+  font-size: var(--h3-font-size);
+  letter-spacing: .1rem;
+  color:var(--dark-color-light);
   margin-bottom: var(--mb-1);
 }
 
 .sneaker__preci{
+  font-size: var(--h2-font-size);
+  letter-spacing: .1rem;
+  font-weight: var(--font-bold);
   margin-bottom: var(--mb-4);
 }
 
