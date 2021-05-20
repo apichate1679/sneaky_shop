@@ -108,39 +108,7 @@
                     <a href="#product" class="button-light">View Collection <i class='bx bx-right-arrow-alt button-icon'></i></a>
                 </div>
 
-                <div class="new__sneaker">
-                    <div class="new__sneaker-card">
-                        <div class="sneaker__sale">NEW</div>
-                        <img src="" alt="" class="new__sneaker-img">
-                        <div class="new__sneaker-overlay">
-                            <a href="Checkout.html" class="button">Check out</a>
-                        </div>
-                    </div>
-
-                    <div class="new__sneaker-card">
-                        <div class="sneaker__sale">NEW</div>
-                        <img src="" alt="" class="new__sneaker-img">
-                        <div class="new__sneaker-overlay">
-                            <a href="Checkout.html" class="button">Check out</a>
-                        </div>
-                    </div>
-
-                    <div class="new__sneaker-card">
-                        <div class="sneaker__sale">NEW</div>
-                        <img src="" alt="" class="new__sneaker-img">
-                        <div class="new__sneaker-overlay">
-                            <a href="Checkout.html" class="button">Check out</a>
-                        </div>
-                    </div>
-
-                    <div class="new__sneaker-card">
-                        <div class="sneaker__sale">NEW</div>
-                        <img src="assets/img/new5.png" alt="" class="new__sneaker-img">
-                        <div class="new__sneaker-overlay">
-                            <a href="Checkout.html" class="button">Check out</a>
-                        </div>
-                    </div>
-                </div>
+                <div class="new__sneaker" id="new_cargo_list"></div>
             </div>
         </section>
         <!--=============END OF NEW===================-->
@@ -148,9 +116,7 @@
         <!--=============START OF PRODUCTS===================-->
         <section class="product section" id="product">
             <h2 class="section-title">PRODUCTS</h2>
-
-            <div class="featured__container bd-grid" id="cargo_list">
-            </div>
+            <div class="featured__container bd-grid" id="cargo_list"></div>
         </section>
         <!--=============END OF PRODUCTS===================-->
         <script>
@@ -159,7 +125,6 @@
                     if (data.status === "success") {
                         console.log(data.result);
                         data.result.forEach(({cargo_id, name, image, price})=>{
-                            console.log(name);
                             $("#cargo_list").append(`
                             <article class="sneaker">
                                 <img src="/uploads/${image}" alt="" class="sneaker__img">
@@ -167,6 +132,19 @@
                                 <span class="sneaker__preci">${price} ฿</span>
                                 <a href="/Checkout.html?cargo_id=${cargo_id}" class="button-light">Check out <i class='bx bx-right-arrow-alt button-icon'></i></a>
                             </article>
+                            `)
+                        })
+
+                        data.result.slice(0, 4).reverse().forEach(({cargo_id, image})=>{
+                            console.log(cargo_id, image);
+                            $("#new_cargo_list").append(`
+                            <div class="new__sneaker-card">
+                                <div class="sneaker__sale">NEW</div>
+                                <img src="/uploads/${image}" alt="" class="new__sneaker-img">
+                                <div class="new__sneaker-overlay">
+                                    <a href="/Checkout.html?cargo_id=${cargo_id}" class="button">Check out</a>
+                                </div>
+                            </div>
                             `)
                         })
                     }
