@@ -414,7 +414,6 @@ img{
   width:100%;
   margin-top: var(--mb-3);
   margin-bottom: var(--mb-6);
-
 }
 .sneaker__name{
   font-size: var(--h3-font-size);
@@ -426,10 +425,6 @@ img{
   font-size: var(--h2-font-size);
   letter-spacing: .1rem;
   font-weight: var(--font-bold);
-  margin-bottom: var(--mb-1);
-}
-
-.sneaker__preci{
   margin-bottom: var(--mb-4);
 }
 
