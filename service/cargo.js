@@ -1,5 +1,6 @@
 const multer = require('multer')
 const cargo = require('../db/cargo')
+const stringFormat = require('../util/stringFormat')
 
 const cargoImageMiddleware = multer({
   storage: multer.diskStorage({
@@ -26,7 +27,13 @@ async function insertCargo(req, res) {
 
 async function getAllCargo(req, res) {
   const result = await cargo.getALLCargo()
-  res.send({ status: 'success', result })
+  res.send({
+    status: 'success',
+    result: result.map(c => ({
+      ...c,
+      price: stringFormat.numberWithCommas(c.price),
+    })),
+  })
 }
 
 async function getCargo(req, res) {
@@ -37,7 +44,13 @@ async function getCargo(req, res) {
     return res.send({ status: 'fail' })
   }
 
-  return res.send({ status: 'success', result: result[0] })
+  return res.send({
+    status: 'success',
+    result: {
+      ...result[0],
+      price: stringFormat.numberWithCommas(result[0].price),
+    },
+  })
 }
 
 module.exports = {
