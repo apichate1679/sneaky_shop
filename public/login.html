@@ -8,16 +8,35 @@
         <link rel="stylesheet" href="style.css">
         <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link href="img/logo.png" type="image/png" rel="shortcut icon" />
     </head>
     <body>
-        
+        <header class="l-header" id="header">
+            <nav class="nav bd-grid">
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class='bx bxs-grid'></i>
+                </div>
+    
+                <div class="nav__logo">
+                    <img id="logo_s" src="./img/Logo.png" alt="Logo Sneaky Shop">
+                    <a href="#" >Sneaky Shop</a>
+                </div>
+    
+                <div class="nav__menu" id="nav-menu">
+                    <ul class="nav__list">
+                        <li class="nav__item"><a href="index_login.html" class="nav__link ">Back</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
         <div class="main">
             <section class="register">
                 <!-- <div class="container"> -->
                     <div class="register-content" id="boxShop">
                         <div class="register-img" id="left">
                             <!-- <figure> -->
-                                <img src="img/sneakerpic2.jpg">
+                                <img src="img/login.jpg">
                             <!-- </figure> -->
                         </div>
                         <div class="register-form" id="right">
@@ -94,5 +113,6 @@
         <p class="footer__copy">&#169; 2021 Sneaky Shop. All right reserved</p>
     </footer>
     <!--END Of FOOTER-->
+    <!--===== MAIN JS =====-->
     </body>
 </html>

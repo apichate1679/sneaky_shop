@@ -1,4 +1,4 @@
-window.onload= pageLoad;
+// window.onload= pageLoad;
 function pageLoad(){
     document.getElementById("checkout").onclick=Checkout;
 

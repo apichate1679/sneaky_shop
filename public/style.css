@@ -243,13 +243,14 @@ img{
 	width:50%;
 }
 .home .caption h1{
-  font-family: banner__font;
+  font-family: "banner__font";
 	font-size: 2.8em;
 	color:var(--dark-color);
 	margin:0;
 	
 }
 .home .slide.work .caption h1{
+  font-family: "banner__font";
 	opacity:0;
 	animation: captionText .5s ease forwards;
 	animation-delay:1s;
@@ -644,6 +645,28 @@ textarea {
   color: black;
   background-color: white;
 }
+/* ===== Logo =====*/
+
+#logo_s{
+  max-width: var(--mb-3);
+  margin-right: var(--mb-1);
+} 
+.nav__logo{
+  display: inline-flex;
+}
+#errordisplay{
+	/*margin-top: -20px;*/
+	font-size:12px;
+	color: #EE0019;
+}
+
+/*========New Crgo==========*/
+.add__cargo{
+  position:relative;
+  text-align: center;
+  margin: auto;
+}
+
 /* ===== MEDIA QUERIES =====*/
 @media screen and (min-width: 576px){
   .collection__container{
