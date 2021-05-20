@@ -1,5 +1,9 @@
 /*===== GOOGLE FONTS =====*/
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+@font-face {
+  font-family: banner__font;
+  src: url(font/Futura\ Condensed\ Extra\ Bold\ Oblique.otf);
+}
 /*===== VARIABLES CSS =====*/
 :root{
   --header-height: 3rem;
@@ -12,7 +16,7 @@
   /*===== Colores =====*/
   --dark-color: #141414;
   --dark-color-light: #8A8A8A;
-  --dark-color-lighten: #F2F2F2;
+  --dark-color-lighten: #F7F7F7;
   --white-color: #FFF;
   --red-color: #ff6347;
   --dar-color-red:#f54323;
@@ -65,6 +69,7 @@ body{
   font-family: var(--body-font);
   font-size: var(--normal-font-size);
   font-weight: var(--font-medium);
+  background-color: var(--dark-color-lighten);
   color: var(--dark-color);
   line-height: 1.6;
 }
@@ -238,8 +243,9 @@ img{
 	width:50%;
 }
 .home .caption h1{
-	font-size:42px;
-	color:var(--white-color);
+  font-family: banner__font;
+	font-size: 2.8em;
+	color:var(--dark-color);
 	margin:0;
 	
 }
@@ -249,9 +255,10 @@ img{
 	animation-delay:1s;
 }
 .home .caption p{
-	font-size: 18px;
-	margin:15px 0 30px;
-	color:var(--white-color);
+  font-family: banner__font;
+	font-size: var(--mb-3);
+	margin:15px 0 10px;
+	color:var(--dark-color);
 }
 .home .slide.work .caption p{
 	opacity:0;
@@ -290,17 +297,18 @@ img{
  height:40px;
  width: 40px;
  margin-top: -20px;
- color:var(--white-color);
- /* background-color: var(--red-color); */
+ color:var(--dark-color);
+ /* background-color: var(--white-color); */
  text-align: center;
  line-height: 40px;
  font-size:50px;
  cursor:pointer;
  transition: all .5s ease;
+ border-radius: 10%;
 }
 .home .controls .prev:hover,
 .home .controls .next:hover{
-	/* background-color:var(--white-color); */
+	transform: scale(1.5);
 }
 .home .controls .prev{
  left:0;
@@ -385,7 +393,7 @@ img{
   flex-direction: column;
   align-items: center;
   padding: 2rem;
-  background-color: var(--dark-color-lighten);
+  background-color: var(--white-color);
   border-radius: .5rem;
   transition: .3s;
 }
@@ -403,20 +411,21 @@ img{
 }
 
 .sneaker__img{
-  width: 220px;
+  width:100%;
   margin-top: var(--mb-3);
   margin-bottom: var(--mb-6);
-  transform: var(--rotate-img);
-  filter: drop-shadow(0 12px 8px rgba(0,0,0,.2));
-}
 
-.sneaker__name, .sneaker__preci{
+}
+.sneaker__name{
+  font-size: var(--h3-font-size);
+  letter-spacing: .1rem;
+  color:var(--dark-color-light);
+  margin-bottom: var(--mb-4);
+}
+.sneaker__preci{
   font-size: var(--h2-font-size);
   letter-spacing: .1rem;
   font-weight: var(--font-bold);
-}
-
-.sneaker__name{
   margin-bottom: var(--mb-1);
 }
 
@@ -474,13 +483,13 @@ img{
 .new__sneaker{
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
 }
 
 .new__sneaker-card{
   position: relative;
   padding: 3.5rem 1.5rem;
-  background-color: var(--dark-color-lighten);
+  background-color: var(--white-color);
   border-radius: .5rem;
   overflow: hidden;
   display: flex;
@@ -489,6 +498,7 @@ img{
 
 .new__sneaker-img{
   width: 220px;
+  border-radius: 5%;
 }
 
 .new__sneaker-overlay{
@@ -509,8 +519,10 @@ img{
 }
 
 /*===== FOOTER =====*/
+
 .footer__container{
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  background-color: var(--dark-color-lighten);
 }
 
 .footer__box{
@@ -658,6 +670,7 @@ textarea {
   .new__mens{
     align-items: center;
   }
+  
 }
 
 @media screen and (min-width: 768px){
