@@ -32,7 +32,7 @@ async function register(req, res) {
 
 function loginPermissionMiddleware(req, res, next) {
   if (typeof req.cookies.userId === 'undefined') {
-    res.send({ status: 'fail' })
+    return res.send({ status: 'fail' })
   }
   next()
 }
