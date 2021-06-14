@@ -1,4 +1,4 @@
-module.exports {
+module.exports = {
   ssl: {
     enable: true,
     privateKeyPath: '/etc/letsencrypt/live/sneaky-shop.ml/privkey.pem',
