@@ -72,6 +72,8 @@
                     $.post("/api/register", {email, password, confirmPassword},(data)=>{
                         if (data.status === "success") {
                             location.href = "/login.html"
+                        }else{
+                            alert("fail to register try again later.")
                         }
                     }, "json")
                 })
