@@ -7,8 +7,8 @@ const cargoService = require('./service/cargo')
 
 const app = express()
 
-const hostname = 'localhost'
-const port = 3001
+const hostname = '0.0.0.0'
+const port = 80
 
 app.use('/', express.static('public'))
 app.use('/uploads', express.static('uploads'))
